@@ -133,4 +133,13 @@ cd ..
 The resulting JAR `hadoop-common-patched.jar` can then be deployed to the
 machines by replacing
 `/usr/hdp/2.6.5.0-292/hadoop/hadoop-common-2.7.3.2.6.5.0-292.jar` with it and
-restarting the services
+restarting the services as follows:
+1. 
+ - Restart ZKFC on standby
+ - Restart standby
+ - Restart any other Hadoop services on this host
+2.
+ - Restart ZKFC on active NN host
+ - Confirm new active election on the other host
+ - Restart new standby on this host
+ - Restart any other Hadoop services on this host
